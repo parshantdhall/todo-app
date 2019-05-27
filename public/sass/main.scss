@@ -4,6 +4,7 @@ $dark-blue:#05386b;
 $dark-grey: #777;
 $color-pink: #e7717d;
 $color-black: #000;
+$color-blue-light: #66fcf1;
 // Google font
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 *,
@@ -23,6 +24,7 @@ html {
   width: 100%;
   height: 100%;
   background-color: $light-grey;
+  overflow-x: hidden;
 }
 
 .textContainer {
@@ -64,7 +66,7 @@ html {
   
   &:focus {
     outline: none;
-    border-color: #66fcf1;
+    border-color: $color-blue-light;
   }
 }
 
@@ -150,4 +152,34 @@ html {
 .done {
   text-decoration: line-through;
   color: $dark-grey;
+}
+
+// Message
+.message-box {
+  padding: 20px;
+  display: inline-block;
+  position: absolute;
+  right: 7%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(60%);
+  transition: all ease-in-out .6s;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  color: white;
+}
+.msg {
+
+  &-show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &-success {
+    background-color: $color-blue-light;    
+  }
+  &-danger {
+    background-color: $color-pink;
+  }
 }

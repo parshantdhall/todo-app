@@ -14,7 +14,8 @@ body {
   font-size: inherit;
   width: 100%;
   height: 100%;
-  background-color: #F8F8FF; }
+  background-color: #F8F8FF;
+  overflow-x: hidden; }
 
 .textContainer {
   position: relative;
@@ -113,3 +114,27 @@ body {
 .done {
   text-decoration: line-through;
   color: #777; }
+
+.message-box {
+  padding: 20px;
+  display: inline-block;
+  position: absolute;
+  right: 7%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(60%);
+  transition: all ease-in-out .6s;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  color: white; }
+
+.msg-show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0); }
+
+.msg-success {
+  background-color: #66fcf1; }
+
+.msg-danger {
+  background-color: #e7717d; }

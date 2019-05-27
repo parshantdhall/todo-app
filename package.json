@@ -4,7 +4,8 @@
   "description": "It is a single page todo app to check ajax",
   "main": "app.js",
   "scripts": {
-    "compile:sass": "node-sass ./public/sass/main.scss ./public/stylesheets/style.css -w"
+    "compile-sass": "node-sass --include-path sass ./public/sass/main.scss ./public/stylesheets/style.css",
+    "watch-css": "nodemon -e sass -x \"npm run compile-sass\""
   },
   "author": "Parshant Dhall",
   "license": "ISC",

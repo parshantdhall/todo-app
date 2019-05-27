@@ -1,5 +1,9 @@
 const cardContainer = document.querySelector('.card-container');
 let inpt = document.querySelector('input');
+let msgText = document.querySelector('.msg-text');
+let msgBox = document.querySelector('.message-box');
+
+// Focusing on input on hover
 inpt.onmouseenter = function(){
   this.focus();
 };
@@ -21,6 +25,7 @@ let fetching = (url, meth) => {
   });
 }
 
+// Posting function
 let posting = (url, meth , data) => {
   return axios({
     method: meth,
@@ -76,6 +81,18 @@ let addData = (todoText, id, completed) => {
   cardContainer.appendChild(card);  
 }
 
+// Function to create message
+let message = (msg, msgType) => {
+  msgText.textContent = msg;
+  msgBox.classList.add(`msg-${msgType}`);
+  msgBox.classList.add('msg-show');
+
+  setTimeout(() => {
+    msgBox.classList.remove('msg-show');
+    msgBox.classList.remove(`msg-${msgType}`);
+  }, 2500);
+}
+
 // completion function
 const completion = function(id) {
   fetching(`/api/todos/${id}`, 'GET')
@@ -98,7 +115,7 @@ const deletion = function(id, card) {
   // e.stopPropagation();  
   fetching(`/api/todos/${id}`, 'DELETE')
   .then(() => {
-    console.log("deletion successful");
+    message("deletion successful", 'danger');
     // Removing child from container
     cardContainer.removeChild(card);
   })
@@ -124,6 +141,7 @@ inpt.addEventListener('keypress', function(e) {
     // Post the todo
     posting('/api/todos', 'POST', data)
     .then(data => {
+      message("Todo Added Successfully", 'success');
       addData(data.name, data._id, data.completed);
       this.value = "";
     })
