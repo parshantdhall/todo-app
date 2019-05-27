@@ -47,12 +47,12 @@ html {
   color: $dark-grey;
 }
 
-form {
+.form {
   position: relative;
   margin: 0 auto;
 }
 
-form input {
+.form input {
   padding: 8px;
   border: none;
   border-bottom: 2px solid $dark-blue;
@@ -84,7 +84,7 @@ form input {
   opacity: 0;
 }
 
-form input:focus + .enter {
+.form input:focus + .enter {
   visibility: visible;
   opacity: 1;
 }

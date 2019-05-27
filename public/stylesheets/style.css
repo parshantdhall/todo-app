@@ -33,11 +33,11 @@ body {
   font-size: 1.5rem;
   color: #777; }
 
-form {
+.form {
   position: relative;
   margin: 0 auto; }
 
-form input {
+.form input {
   padding: 8px;
   border: none;
   border-bottom: 2px solid #05386b;
@@ -46,7 +46,7 @@ form input {
   font-weight: lighter;
   color: #e7717d;
   transition: .2s all ease-in-out; }
-  form input:focus {
+  .form input:focus {
     outline: none;
     border-color: #66fcf1; }
 
@@ -64,7 +64,7 @@ form input {
   font-weight: 700;
   opacity: 0; }
 
-form input:focus + .enter {
+.form input:focus + .enter {
   visibility: visible;
   opacity: 1; }
 

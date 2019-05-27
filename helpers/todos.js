@@ -9,8 +9,8 @@ exports.getTodos = (req, res) => {
 }
 
 exports.createTodo = (req, res) => {
-  let name = req.body.name;
-  db.Todo.create({name: name})
+  let body = req.body;
+  db.Todo.create({name: body.name})
   .then(todo => {
     res.status(201).json(todo);
   })
@@ -30,7 +30,7 @@ exports.getTodo = (req, res) => {
 
 exports.updateTodo = (req, res) => {
   let todoId = req.params.todoId;
-  db.Todo.findByIdAndUpdate(todoId, req.body.name, {new: true})
+  db.Todo.findOneAndUpdate({_id: todoId}, req.body, {new: true})
   .then(todo => {
     res.json(todo);
   })
