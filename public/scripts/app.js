@@ -9,35 +9,35 @@ inpt.onmouseenter = function(){
 };
 
 // Fetching function
-let fetching = (url, meth) => {
+let fetching = async (url, meth) => {
 
-  return axios({
+  let result = await axios({
     method: meth,
     url: url,
-  })
-  .then((res) => {
-    if(res.status == 200) {
-      return res.data;
-    }
-  })
-  .catch(err => {
-    console.log(err);
   });
+
+  try {
+    return result.data;
+  }
+  catch(err) {
+    console.log(err);
+  }
 }
 
 // Posting function
-let posting = (url, meth , data) => {
-  return axios({
+let posting = async (url, meth , data) => {
+  let result =  await axios({
     method: meth,
     url: url,
     data: data
   })
-  .then((res) => {
-    return res.data;
-  })
-  .catch(err => {
+
+  try {
+    return result.data;
+  }
+  catch(err) {
     console.log(err);
-  });
+  }
 }
 
 // Function to add Data to page
