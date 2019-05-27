@@ -1,5 +1,8 @@
 const cardContainer = document.querySelector('.card-container');
 let inpt = document.querySelector('input');
+inpt.onmouseenter = function(){
+  this.focus();
+};
 
 // Fetching function
 let fetching = (url, meth) => {
